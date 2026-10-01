@@ -10,5 +10,5 @@ Ejemplo: <code>{ 1: 1, 2: 1.41421356237, 3: 2, 4: 2.82842712475, 5: ... }</code>
 
 import math
 n = 10 
-donas= [math.sqrt(2)] ** (k-1) for k in range(1, n + 1)]
+donas= [math.sqrt(2) ** (k-1) for k in range(1, n + 1)]
 print(donas)

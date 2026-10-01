@@ -10,20 +10,24 @@ Por defecto, si la función es llamada sin una "expresión" (solo la lista de ev
 
 def ordenar_eventos(eventos, expresion=False):
     lista = []
-    lista.append(e)
+    for e in eventos:
+        lista.append(e)
 
     for i in range(len(lista)):
         for j in range(i + 1, len(lista)):
             if expresion:
                 if lista[i] < lista[j]:
-                    lista = aux
-            else: 
+                    aux = lista[i]
+                    lista[i] = lista[j]
+                    lista[j] = aux
+            else:
                 if lista[i] > lista[j]:
                     aux = lista[i]
                     lista[i] = lista[j]
                     lista[j] = aux
     return lista
-Evento = ["Kermés", "Concurso de comida", "Reunión de concejo municipal"]
-print(ordenar_eventos(Evento))
-print(ordenar_eventos(Evento, True))
+
+ev = ["Kermés", "Concurso de Comida", "Reunión del Concejo Municipal"]
+print(ordenar_eventos(ev))        # A a la Z
+print(ordenar_eventos(ev, True))  # Z a la A
 

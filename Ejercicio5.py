@@ -18,26 +18,33 @@ La clase debe contener métodos para facilitar:
 import datetime
 
 class ProductoKwikE:
+
     def __init__(self, descripcion, id_producto, fecha_vencimiento, precio, stock, categoria):
-        self.descripcion
-        self-id_producto = id_producto
+        self.descripcion = descripcion
+        self.id_producto = id_producto
         self.fecha_vencimiento = fecha_vencimiento
         self.precio = precio
         self.stock = stock
         self.categoria = categoria
-    
+
     def cambiar_datos(self, descripcion=None, precio=None, stock=None):
-        if descripcion is note None: 
+        if descripcion is not None:
             self.descripcion = descripcion
-        if precio is not None: 
+
+        if precio is not None:
             self.precio = precio
+
         if stock is not None:
             self.stock = stock
-    
+
     def dias_para_vencer(self):
-        hoy = datatime.data.today()
-        dias = (self.fecha_vencimiento = hoy).days
+        hoy = datetime.date.today()
+        dias = (self.fecha_vencimiento - hoy).days
+
         if dias < 0:
-            print("El producto", self.descripcion, "esta´ vencido. Stock en 0")
+            print("El producto", self.descripcion, "esta vencido. Stock en 0.")
             self.stock = 0
-            return dias
+
+        return dias
+
+
