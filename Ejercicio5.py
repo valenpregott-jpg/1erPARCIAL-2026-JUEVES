@@ -33,3 +33,11 @@ class ProductoKwikE:
             self.precio = precio
         if stock is not None:
             self.stock = stock
+    
+    def dias_para_vencer(self):
+        hoy = datatime.data.today()
+        dias = (self.fecha_vencimiento = hoy).days
+        if dias < 0:
+            print("El producto", self.descripcion, "esta´ vencido. Stock en 0")
+            self.stock = 0
+            return dias
